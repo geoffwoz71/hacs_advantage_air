@@ -253,14 +253,14 @@ class AdvantageAirZone(AdvantageAirZoneEntity, ClimateEntity):
 
     _attr_temperature_unit = TEMP_CELSIUS
     _attr_target_temperature_step = PRECISION_WHOLE
-    _attr_max_temp = 32
-    _attr_min_temp = 16
+    _attr_max_temp = 26
+    _attr_min_temp = 20
     _attr_hvac_modes = [HVACMode.OFF, HVACMode.HEAT_COOL]
     _attr_supported_features = ClimateEntityFeature.TARGET_TEMPERATURE
     _attr_temperature_unit = TEMP_CELSIUS
     _attr_target_temperature_step = PRECISION_WHOLE
-    _attr_max_temp = 32
-    _attr_min_temp = 16
+    _attr_max_temp = 26
+    _attr_min_temp = 20
 
     def __init__(self, instance, ac_key, zone_key) -> None:
         """Initialize an AdvantageAir Zone control."""

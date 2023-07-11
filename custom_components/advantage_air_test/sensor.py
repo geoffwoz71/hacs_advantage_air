@@ -120,3 +120,24 @@ class AdvantageAirZoneTemp(AdvantageAirZoneEntity, SensorEntity):
     def native_value(self):
         """Return the current value of the measured temperature."""
         return self._zone["measuredTemp"]
+
+class AdvantageAirZoneSetTemp(AdvantageAirZoneEntity, SensorEntity):
+    """Representation of Advantage Air Zone temperature setting."""
+
+    _attr_native_unit_of_measurement = TEMP_CELSIUS
+    _attr_device_class = SensorDeviceClass.TEMPERATURE
+    _attr_state_class = SensorStateClass.MEASUREMENT
+    _attr_entity_registry_enabled_default = False
+    _attr_entity_category = EntityCategory.DIAGNOSTIC
+
+    def __init__(self, instance, ac_key, zone_key):
+        """Initialize an Advantage Air Zone Set Temp Sensor."""
+        super().__init__(instance, ac_key, zone_key)
+        self._attr_name = f'{self._zone["name"]} set temperature'
+        self._attr_unique_id += "-set_temp"
+
+    @property
+    def native_value(self):
+        """Return the current value of the set temperature."""
+        return self._zone["setTemp"]
+
