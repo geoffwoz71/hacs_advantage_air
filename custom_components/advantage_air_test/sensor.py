@@ -35,6 +35,7 @@ async def async_setup_entry(
                 if zone["type"] != 0:
                     entities.append(AdvantageAirZoneVent(instance, ac_key, zone_key))
                     entities.append(AdvantageAirZoneTemp(instance, ac_key, zone_key))
+                    entities.append(AdvantageAirZoneSetTemp(instance, ac_key, zone_key))
                 # Only show wireless signal strength sensors when using wireless sensors
                 if zone["rssi"] > 0:
                     entities.append(AdvantageAirZoneSignal(instance, ac_key, zone_key))
@@ -107,7 +108,7 @@ class AdvantageAirZoneTemp(AdvantageAirZoneEntity, SensorEntity):
     _attr_native_unit_of_measurement = TEMP_CELSIUS
     _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_state_class = SensorStateClass.MEASUREMENT
-    _attr_entity_registry_enabled_default = False
+    _attr_entity_registry_enabled_default = True
     _attr_entity_category = EntityCategory.DIAGNOSTIC
 
     def __init__(self, instance, ac_key, zone_key):
@@ -127,7 +128,7 @@ class AdvantageAirZoneSetTemp(AdvantageAirZoneEntity, SensorEntity):
     _attr_native_unit_of_measurement = TEMP_CELSIUS
     _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_state_class = SensorStateClass.MEASUREMENT
-    _attr_entity_registry_enabled_default = False
+    _attr_entity_registry_enabled_default = True
     _attr_entity_category = EntityCategory.DIAGNOSTIC
 
     def __init__(self, instance, ac_key, zone_key):
