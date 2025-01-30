@@ -7,7 +7,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import PERCENTAGE, TEMP_CELSIUS
+from homeassistant.const import PERCENTAGE, UnitOfTemperature.CELSIUS
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -105,7 +105,7 @@ class AdvantageAirZoneSignal(AdvantageAirZoneEntity, SensorEntity):
 class AdvantageAirZoneTemp(AdvantageAirZoneEntity, SensorEntity):
     """Representation of Advantage Air Zone temperature sensor."""
 
-    _attr_native_unit_of_measurement = TEMP_CELSIUS
+    _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_entity_registry_enabled_default = True
@@ -125,7 +125,7 @@ class AdvantageAirZoneTemp(AdvantageAirZoneEntity, SensorEntity):
 class AdvantageAirZoneSetTemp(AdvantageAirZoneEntity, SensorEntity):
     """Representation of Advantage Air Zone temperature setting."""
 
-    _attr_native_unit_of_measurement = TEMP_CELSIUS
+    _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
     _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_entity_registry_enabled_default = True
