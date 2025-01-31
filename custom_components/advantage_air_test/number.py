@@ -2,7 +2,7 @@
 
 from homeassistant.components.number import NumberEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import TIME_MINUTES
+from homeassistant.const import UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -31,7 +31,7 @@ async def async_setup_entry(
 class AdvantageAirTimeTo(AdvantageAirAcEntity, NumberEntity):
     """Representation of Advantage Air TimeTo number."""
 
-    _attr_native_unit_of_measurement = TIME_MINUTES
+    _attr_native_unit_of_measurement = UnitOfTime.MINUTES
     _attr_entity_category = EntityCategory.CONFIG
     _attr_native_step = 1
     _attr_native_min_value = 0
